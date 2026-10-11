@@ -80,16 +80,9 @@ ignores anything it doesn't recognise and can silently drop assets.
 
 The site is live at https://adriancheong.github.io/tokyo-dec-2026/.
 
-It is currently published from the **`gh-pages`** branch, which is a copy of
-`master`. After pushing a change to `master`, publish it with:
-
-```bash
-git push origin master:gh-pages
-```
-
-To publish straight from `master` instead (as the November site does):
-Settings → Pages → Source: **Deploy from a branch** → Branch: **master**,
-folder **/ (root)** → Save. The `gh-pages` branch can then be deleted.
+It is published straight from the **`main`** branch, folder **/ (root)**
+(Settings → Pages → Deploy from a branch). Every push to `main` goes live
+within a minute or so.
 
 A published Pages site is reachable by anyone with the link, whatever the
 repo's visibility.
