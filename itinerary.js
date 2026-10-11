@@ -61,7 +61,7 @@ const TRIP = {
       nights: "5 nights",
       name: "Shiga Kogen Prince Hotel",
       map: "Shiga Kogen Prince Hotel",
-      where: "Ski-in, ski-out. Which building is still to be confirmed",
+      where: "Most likely the West building. Ski-in, ski-out",
       tel: "0269-34-3111",
     },
     {
@@ -88,13 +88,13 @@ const TRIP = {
       time: "09:10",
       name: "Bus up, Nagano East Exit stop 23",
       map: "Nagano Station East Exit",
-      note: "Can't be reserved — be in the queue by 08:40. Reaches the Prince at about 10:45.",
+      note: "Can't be reserved — be in the queue by 08:40. Get off at Prince Hotel West, 10:42, the stop after Ichinose Diamond.",
     },
     {
       day: "Thursday 31",
-      time: "11:50",
-      name: "Bus down from the Prince",
-      note: "East building 11:50, South 11:51, West 11:52. Reaches Nagano Station at 13:39.",
+      time: "11:52",
+      name: "Bus down, from Prince Hotel West",
+      note: "Stay on to the last stop, Nagano Station, 13:39.",
     },
     {
       day: "Thursday 31",
@@ -200,12 +200,14 @@ const TRIP = {
           time: "09:10",
           name: "Nagaden express bus to Shiga Kogen",
           jp: "長電バス 志賀高原線",
-          dish: "About an hour and a half, ¥3,000 each",
+          dish: "1 hour 32 minutes to Prince Hotel West, ¥3,000 each",
           status: "travel",
           notes: [
-            "Stops at Prince Hotel West at 10:42, South at 10:44, East at 10:46. Get off at our building.",
-            "The driver loads suitcases into the hold. Tell him our building in Japanese: プリンスホテル西館 (West), 南館 (South) or 東館 (East).",
-            "Pay as we get off, by card, Suica or PayPay. At weekends and on holidays it takes no cash on board.",
+            "Get off at Prince Hotel West (プリンスホテル西館), due 10:42. It's the stop outside the West building.",
+            "On the way up: Sun Valley 10:22, Maruike, Yamanoeki and Hasuike about 10:28, Takamagahara 10:38, Ichinose Village 10:40, Ichinose Diamond 10:41 — then us. Once Ichinose comes up, get ready: West is a minute or two later.",
+            "If it goes by, get off at the next stop, Prince Hotel South (10:44), and ring the front desk on 0269-34-3111. Don't ride on to Okushiga.",
+            "The driver loads suitcases into the hold. Tell him as he does: \"Purinsu Hoteru, Nishi-kan\" (Prince Hotel, West building), so he knows to open it there.",
+            "Pay as we get off, by contactless card, Suica or PayPay. At weekends and on holidays it takes no cash on board.",
             "The last stretch is a winding mountain road — sit near the front if either of us gets carsick.",
             "From this season the bus no longer stops at the Snow Monkey Park.",
           ],
@@ -218,11 +220,12 @@ const TRIP = {
         },
         {
           slot: "Then",
-          time: "About 10:45",
+          time: "10:42",
           name: "Drop the bags, pick up the gear, ride",
           status: "ride",
           notes: [
-            "Check-in is from 15:00. Leave the bags at the front desk and get on the snow.",
+            "Check-in is from 15:00. Leave the bags at the West building's front desk and get on the snow.",
+            "Ask the front desk to confirm our building — and, while there, exactly where the West bus stop is for 31 December.",
             "Rental boards and boots reserved ahead for peak week — ask the Prince what it offers.",
           ],
           why: "Half a day on the snow before we've even checked in.",
@@ -257,7 +260,7 @@ const TRIP = {
           status: "free",
           notes: [
             "Most of the resort's restaurants and bars are here.",
-            "About ten minutes' walk from the West building. From the South or East, take the hotel shuttle.",
+            "About ten minutes' walk from the West building. If the hotel puts us in East instead, take the hotel shuttle.",
           ],
         },
       ],
@@ -273,22 +276,23 @@ const TRIP = {
       meals: [
         {
           slot: "Bus",
-          time: "11:50",
-          name: "Bus down from the Prince",
+          time: "11:52",
+          name: "Bus down, from Prince Hotel West",
           jp: "長電バス",
-          dish: "Reaches Nagano Station at 13:39",
+          dish: "1 hour 47 minutes to Nagano Station, due 13:39",
           status: "travel",
           notes: [
-            "East building 11:50, South 11:51, West 11:52. Be at our stop by about 11:35 — check-out mornings at a hotel this size bunch up.",
-            "It starts a few stops up at Okushiga, so there should be seats when it reaches the Prince.",
+            "Board at the Prince Hotel West stop, outside the West building. Be there by about 11:40 — check-out mornings at a hotel this size bunch up.",
+            "It starts at Okushiga at 11:40 and calls at Prince Hotel East (11:50) and South (11:51) before us, so there should still be seats.",
+            "Stay on to the last stop, Nagano Station (長野駅). On the way: Ichinose 11:55–11:57, Takamagahara 11:59, Yamanoeki and Hasuike 12:20, Sun Valley 12:22, then the long run down.",
             "Pay by card or Suica as we get off.",
           ],
           fallback: {
             label: "Earlier or later",
             text:
-              "Packed and out by 09:35? The 09:50 bus reaches Nagano at 11:45 for Hakutaka 560, 12:26 → Tokyo about 13:52. " +
-              "If the day slips: 14:05 (Nagano 15:54), 14:55 (16:44), 16:10 (17:59), 17:30 (19:19, the last). " +
-              "Times are from the East building; South is a minute later, West two.",
+              "Packed and out by 09:40? The 09:52 bus reaches Nagano at 11:45 for Hakutaka 560, 12:26 → Tokyo about 13:52. " +
+              "If the day slips: 14:07 (Nagano 15:54), 14:57 (16:44), 16:12 (17:59), 17:32 (19:19, the last). " +
+              "Times are from the West stop.",
           },
         },
         {
@@ -426,13 +430,13 @@ const TRIP = {
   floatingTitle: "Still to pin down",
   floating: [
     {
-      name: "Which building at the Prince",
+      name: "The Prince's West building — most likely, not confirmed",
       status: "tbc",
       notes: [
-        "The booking says Standard Twin, 19 m², without naming a building. That size matches the West building's twins, so West is likely.",
-        "Waiting on the hotel to confirm which building, and where to check in.",
-        "It decides the bus stop — West 10:42 going up and 11:52 coming down; South 10:44 and 11:51; East 10:46 and 11:50.",
-        "West is about ten minutes' walk from Ichinose village. East sits at the gondola, about thirty minutes' walk from the village.",
+        "The South building only opens 4–18 December this season, so it's East or West.",
+        "The booking is a 19 m² Standard Twin. That matches the West building's Twin D (19.2 m²); East's twins are 29 m².",
+        "The hotel hasn't confirmed, and its booking email bounces. Confirm at the front desk on 26 December.",
+        "If it turns out to be East: get off at Prince Hotel East, 10:46, going up, and board there at 11:50 coming down.",
       ],
     },
   ],
