@@ -1,5 +1,9 @@
 # Shiga Kogen itinerary site
 
+**[Open the itinerary →](https://adriancheong.github.io/tokyo-dec-2026/)**
+
+https://adriancheong.github.io/tokyo-dec-2026/
+
 A single static page showing the December 2026 snowboarding trip — Tokyo,
 Nagano and Shiga Kogen — built to be shared as a link. Same look and the same
 workings as the November Tokyo site.
@@ -74,7 +78,7 @@ ignores anything it doesn't recognise and can silently drop assets.
 
 ## GitHub Pages
 
-The site is live at `https://adriancheong.github.io/tokyo-dec-2026/`.
+The site is live at https://adriancheong.github.io/tokyo-dec-2026/.
 
 It is currently published from the **`gh-pages`** branch, which is a copy of
 `master`. After pushing a change to `master`, publish it with:
