@@ -78,7 +78,30 @@
   set("standfirst", esc(TRIP.standfirst));
   document.title = TRIP.city + " · " + TRIP.dates;
 
-  if (TRIP.base) {
+  /* TRIP.stays: every hotel in date order, one compact row each.
+     Takes over the masthead box; TRIP.base is the older single-hotel form. */
+  if (TRIP.stays && TRIP.stays.length) {
+    set(
+      "base",
+      '<p class="stays-label">Where we sleep</p>' +
+      '<ol class="stays">' +
+      TRIP.stays
+        .map(function (s) {
+          return (
+            '<li class="stay">' +
+            '<div class="stay-when">' + esc(s.when) +
+              (s.nights ? "<span>" + esc(s.nights) + "</span>" : "") + "</div>" +
+            '<div class="stay-what"><strong>' +
+              mapLink(s.place, s.name, esc(s.name), s.map) + "</strong>" +
+              (s.where ? "<p>" + esc(s.where) + "</p>" : "") +
+              (s.tel ? "<p>" + telLink(s.tel) + "</p>" : "") +
+            "</div></li>"
+          );
+        })
+        .join("") +
+      "</ol>"
+    );
+  } else if (TRIP.base) {
     var b = TRIP.base;
     var baseHtml = "<strong>" + mapLink(b.place, b.name, esc(b.name), b.map) + "</strong>";
     if (b.address) baseHtml += esc(b.address);

@@ -142,6 +142,43 @@ a {
 }
 .base p { margin: .45rem 0 0; }
 
+/* every hotel, in date order — same two-column rhythm as the flights */
+.base .stays-label {
+  margin: 0 0 .85rem;
+  font-size: .8125rem;
+  color: var(--ink-faint);
+}
+.stays {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+}
+.stay {
+  display: grid;
+  grid-template-columns: 5.5rem 1fr;
+  gap: 0 1rem;
+  align-items: start;
+}
+.stay-when {
+  font-family: var(--display);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--indigo);
+}
+.stay-when span {
+  display: block;
+  font-family: var(--text);
+  font-size: .75rem;
+  font-weight: 400;
+  color: var(--ink-faint);
+  letter-spacing: .03em;
+}
+.base .stay-what strong { margin-bottom: .05rem; }
+.base .stay-what p { margin: .1rem 0 0; }
+
 /* ── flights ─────────────────────────────────────────────── */
 
 .flights { margin-bottom: 2rem; }

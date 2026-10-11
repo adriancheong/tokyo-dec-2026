@@ -47,15 +47,32 @@ const TRIP = {
     },
   ],
 
-  base: {
-    name: "Shiga Kogen Prince Hotel",
-    map: "Shiga Kogen Prince Hotel",
-    address: "Yakebitai-yama, Shiga Kogen, Yamanouchi-machi, Nagano",
-    tel: "0269-34-3111",
-    note:
-      "Five nights, 26–31 December, ski-in and ski-out on Yakebitaiyama. The hotel is three separate " +
-      "buildings — East, South and West — and which one we're in is still to be confirmed.",
-  },
+  // Every hotel, in date order. Shown at the top, under the dates.
+  stays: [
+    {
+      when: "25 Dec",
+      nights: "1 night",
+      name: "Hotel Courtland",
+      map: "Hotel Courtland Nagano",
+      where: "Nagano, opposite the station's East Exit",
+    },
+    {
+      when: "26 Dec",
+      nights: "5 nights",
+      name: "Shiga Kogen Prince Hotel",
+      map: "Shiga Kogen Prince Hotel",
+      where: "Ski-in, ski-out. Which building is still to be confirmed",
+      tel: "0269-34-3111",
+    },
+    {
+      when: "31 Dec",
+      nights: "2 nights",
+      name: "Tokyo Marriott Hotel",
+      map: "Tokyo Marriott Hotel Shinagawa",
+      where: "Shinagawa, free shuttle from the Takanawa exit",
+      tel: "03-5488-3911",
+    },
+  ],
 
   // The timed connections, surfaced at the top of the page.
   lockedTitle: "The four connections",

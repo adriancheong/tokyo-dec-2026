@@ -59,8 +59,9 @@ render. The optional extras are `jp` (Japanese name), `dish`, `where`, `walk`,
 `tel`, `notes`, `why`, `menu`, `fallback`, and `map` — a Google Maps search
 phrase that turns the name into a map link.
 
-Other top-level pieces: `lockedTitle` and `locked` (the boxed connections at
-the top), `floatingTitle` and `floating` (one or more "still to pin down"
+Other top-level pieces: `stays` (every hotel in date order, listed under the
+dates at the top — `when`, `nights`, `name`, `map`, `where`, `tel`),
+`lockedTitle` and `locked` (the boxed connections at the top), `floatingTitle` and `floating` (one or more "still to pin down"
 cards), and `refs` (titled two-column lists, such as the booking checklist).
 
 ## Files
