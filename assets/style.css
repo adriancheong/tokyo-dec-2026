@@ -1,0 +1,665 @@
+/* ─────────────────────────────────────────────────────────────
+   Shiga Kogen itinerary — stylesheet (same look as the November Tokyo site)
+
+   The look: a Japanese editorial timetable. Mincho for display,
+   gothic for text, indigo ink on warm paper, a hanko-seal red
+   reserved strictly for things that are booked.
+
+   You shouldn't need to touch this file to update the trip —
+   everything that changes lives in /itinerary.js
+   ───────────────────────────────────────────────────────────── */
+
+:root {
+  --paper:      #faf7f2;
+  --paper-sunk: #f2ede4;
+  --ink:        #1a2740;
+  --ink-soft:   #4a566e;
+  --ink-faint:  #7c8599;
+  --indigo:     #2d4a7c;
+  --seal:       #a8432c;
+  --moss:       #5a6b4a;
+  --rule:       #ddd5c8;
+  --rule-firm:  #c3b9a8;
+
+  --gutter: 5.5rem;
+  --measure: 36rem;
+
+  --display: "Zen Old Mincho", Georgia, "Times New Roman", serif;
+  --text: "Zen Kaku Gothic New", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper:      #141a24;
+    --paper-sunk: #1b2230;
+    --ink:        #e9e5dc;
+    --ink-soft:   #b3b9c6;
+    --ink-faint:  #818a9b;
+    --indigo:     #8fb0e0;
+    --seal:       #e0907a;
+    --moss:       #a3b88d;
+    --rule:       #2c3542;
+    --rule-firm:  #3d4857;
+  }
+}
+:root[data-theme="dark"] {
+  --paper:      #141a24;
+  --paper-sunk: #1b2230;
+  --ink:        #e9e5dc;
+  --ink-soft:   #b3b9c6;
+  --ink-faint:  #818a9b;
+  --indigo:     #8fb0e0;
+  --seal:       #e0907a;
+  --moss:       #a3b88d;
+  --rule:       #2c3542;
+  --rule-firm:  #3d4857;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--text);
+  font-size: 18px;
+  line-height: 1.6;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+
+.skip {
+  position: absolute; left: -9999px;
+  background: var(--ink); color: var(--paper);
+  padding: .75rem 1rem; z-index: 10;
+}
+.skip:focus { left: 1rem; top: 1rem; }
+
+:focus-visible {
+  outline: 2px solid var(--indigo);
+  outline-offset: 3px;
+}
+
+a {
+  color: var(--indigo);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+.sheet {
+  max-width: 50rem;
+  margin: 0 auto;
+  padding: 0 1rem 5rem;
+}
+
+/* ── masthead ────────────────────────────────────────────── */
+
+.masthead {
+  padding: 4rem 0 2.5rem;
+}
+
+.masthead h1 {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: clamp(3.25rem, 13vw, 5.5rem);
+  line-height: .9;
+  letter-spacing: -.02em;
+  margin: 0;
+}
+
+.dates {
+  font-family: var(--display);
+  font-size: clamp(1.1rem, 4vw, 1.4rem);
+  color: var(--ink-soft);
+  margin: .6rem 0 0;
+  font-weight: 400;
+}
+
+.standfirst {
+  margin: 1.75rem 0 0;
+  max-width: var(--measure);
+  font-size: 1.0625rem;
+  color: var(--ink-soft);
+}
+
+.base {
+  margin-top: 2rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--rule);
+  max-width: var(--measure);
+  font-size: .9375rem;
+  color: var(--ink-soft);
+}
+.base strong {
+  display: block;
+  font-family: var(--display);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: .15rem;
+}
+.base p { margin: .45rem 0 0; }
+
+/* ── flights ─────────────────────────────────────────────── */
+
+.flights { margin-bottom: 2rem; }
+
+.flights h2 {
+  font-family: var(--display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 1rem;
+  padding-bottom: .6rem;
+  border-bottom: 1px solid var(--rule-firm);
+}
+
+.flight-rows {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1.25rem 2rem;
+}
+
+.flight {
+  display: grid;
+  grid-template-columns: 5.5rem 1fr;
+  gap: 0 1rem;
+  align-items: start;
+}
+
+.flight-code {
+  font-family: var(--display);
+  font-size: 1.1875rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--indigo);
+}
+.flight-code span {
+  display: block;
+  font-family: var(--text);
+  font-size: .75rem;
+  font-weight: 400;
+  color: var(--ink-faint);
+  letter-spacing: .03em;
+}
+
+.flight-detail strong {
+  font-family: var(--display);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  display: block;
+}
+.flight-times {
+  margin: .2rem 0 0;
+  font-family: var(--display);
+  font-size: 1.0625rem;
+  font-weight: 600;
+}
+.flight-date {
+  margin: .1rem 0 0;
+  font-size: .8125rem;
+  color: var(--ink-faint);
+}
+
+/* ── the two fixed bookings ──────────────────────────────── */
+
+.locked {
+  background: var(--paper-sunk);
+  border-top: 2px solid var(--seal);
+  padding: 1.75rem 1.5rem 1.5rem;
+  margin-bottom: 4rem;
+}
+
+.locked h2 {
+  font-family: var(--display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 1.25rem;
+  color: var(--seal);
+}
+
+.locked-row {
+  display: grid;
+  grid-template-columns: 7.5rem 1fr;
+  gap: 0 1rem;
+  padding: 1rem 0;
+  border-top: 1px solid var(--rule);
+}
+.locked-row:first-child { border-top: 0; padding-top: 0; }
+
+.locked-when {
+  font-family: var(--display);
+  font-weight: 600;
+  line-height: 1.3;
+}
+.locked-when span {
+  display: block;
+  font-family: var(--text);
+  font-weight: 400;
+  font-size: .8125rem;
+  color: var(--ink-faint);
+}
+.locked-what strong {
+  font-family: var(--display);
+  font-size: 1.1875rem;
+  font-weight: 600;
+  display: block;
+}
+.locked-what p {
+  margin: .25rem 0 0;
+  font-size: .9375rem;
+  color: var(--ink-soft);
+}
+
+/* ── the week ────────────────────────────────────────────── */
+
+.day {
+  display: grid;
+  grid-template-columns: var(--gutter) 1fr;
+  gap: 0 2rem;
+  padding: 2.5rem 0;
+  border-top: 1px solid var(--rule-firm);
+}
+
+.day-mark {
+  font-family: var(--display);
+  line-height: 1;
+  position: sticky;
+  top: 1.5rem;
+  align-self: start;
+}
+.day-mark .num {
+  display: block;
+  font-size: 3.25rem;
+  font-weight: 600;
+  letter-spacing: -.03em;
+}
+.day-mark .mon {
+  display: block;
+  font-family: var(--text);
+  font-size: .8125rem;
+  color: var(--ink-faint);
+  margin-top: .2rem;
+}
+.day-mark .num.range {
+  font-size: 1.75rem;
+  letter-spacing: -.04em;
+  white-space: nowrap;
+}
+
+.day-head { margin-bottom: 1.75rem; }
+.day-head h2 {
+  font-family: var(--display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.2;
+}
+.day-head .area {
+  margin: .3rem 0 0;
+  color: var(--ink-soft);
+  font-size: .9375rem;
+}
+.day-head .aside {
+  margin: .6rem 0 0;
+  font-family: var(--display);
+  font-style: italic;
+  font-size: .9375rem;
+  color: var(--ink-faint);
+}
+
+/* ── a meal ──────────────────────────────────────────────── */
+
+.meal {
+  padding: 1.5rem 0 0;
+  margin-top: 1.5rem;
+  border-top: 1px dotted var(--rule);
+  max-width: var(--measure);
+}
+.meal:first-of-type { border-top: 0; margin-top: 0; padding-top: 0; }
+
+.meal-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: .5rem .9rem;
+  margin-bottom: .35rem;
+}
+
+.meal-time {
+  font-family: var(--display);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--indigo);
+  white-space: nowrap;
+}
+.meal-slot {
+  font-size: .8125rem;
+  color: var(--ink-faint);
+}
+
+.meal h3 {
+  font-family: var(--display);
+  font-size: 1.375rem;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.25;
+  width: 100%;
+}
+.meal h3 .jp {
+  font-size: .875rem;
+  font-weight: 400;
+  color: var(--ink-faint);
+  margin-left: .6rem;
+  white-space: nowrap;
+}
+.meal h3 .stars {
+  color: var(--seal);
+  font-size: .8125rem;
+  margin-left: .4rem;
+  vertical-align: .2em;
+  letter-spacing: .05em;
+}
+
+.dish {
+  margin: .15rem 0 0;
+  color: var(--ink-soft);
+  font-size: 1rem;
+}
+
+.facts {
+  margin: .6rem 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: .875rem;
+  color: var(--ink-faint);
+}
+.facts li { margin: .1rem 0; }
+.facts a { color: var(--indigo); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+
+.notes {
+  margin: .9rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.notes li {
+  position: relative;
+  padding-left: 1.1rem;
+  margin: .5rem 0;
+  font-size: .9375rem;
+  color: var(--ink-soft);
+}
+.notes li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: .65em;
+  width: .35rem; height: 1px;
+  background: var(--rule-firm);
+}
+
+.why {
+  margin: .9rem 0 0;
+  font-family: var(--display);
+  font-style: italic;
+  font-size: .9375rem;
+  color: var(--ink-faint);
+}
+
+/* map links — the restaurant name opens Google Maps */
+
+.maplink {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--rule-firm);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+.maplink:hover,
+.maplink:focus-visible {
+  text-decoration-color: var(--indigo);
+}
+
+.pin {
+  width: .68em;
+  height: .68em;
+  margin-left: .3em;
+  fill: var(--ink-faint);
+  vertical-align: baseline;
+  flex: none;
+}
+.maplink:hover .pin,
+.maplink:focus-visible .pin { fill: var(--indigo); }
+
+/* status mark */
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  font-size: .75rem;
+  letter-spacing: .04em;
+  color: var(--ink-faint);
+  white-space: nowrap;
+}
+.status::before {
+  content: "";
+  width: .55rem; height: .55rem;
+  border-radius: 50%;
+  background: currentColor;
+}
+.status.booked { color: var(--seal); font-weight: 700; }
+.status.walkin { color: var(--moss); }
+.status.walkin::before { background: none; border: 1.5px solid currentColor; }
+.status.tbc    { color: var(--indigo); }
+.status.tbc::before { background: none; border: 1.5px dashed currentColor; }
+.status.free   { color: var(--ink-faint); }
+.status.free::before { background: none; border: 1px solid currentColor; opacity: .6; }
+.status.travel { color: var(--indigo); }
+.status.travel::before { border-radius: 0; transform: rotate(45deg); width: .45rem; height: .45rem; }
+.status.tobook { color: var(--indigo); font-weight: 700; }
+.status.tobook::before { background: none; border: 1.5px dashed currentColor; }
+.status.ride   { color: var(--moss); }
+.status.ride::before { border-radius: 0; width: .6rem; height: 2px; }
+
+/* menu block */
+.menu {
+  margin: 1.25rem 0 0;
+  background: var(--paper-sunk);
+  padding: 1.1rem 1.25rem;
+}
+.menu h4 {
+  font-family: var(--display);
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 .15rem;
+}
+.menu .intro {
+  margin: 0 0 .9rem;
+  font-size: .8125rem;
+  color: var(--ink-faint);
+}
+.menu dl { margin: 0; }
+.menu .row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding: .45rem 0;
+  border-bottom: 1px dotted var(--rule);
+  font-size: .9375rem;
+}
+.menu .row:last-of-type { border-bottom: 0; }
+.menu .row.pick dt { font-weight: 700; }
+.menu dt { margin: 0; }
+.menu dt small {
+  display: block;
+  font-weight: 400;
+  font-size: .8125rem;
+  color: var(--ink-faint);
+  margin-top: .1rem;
+}
+.menu dd {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 600;
+  white-space: nowrap;
+}
+.menu .foot {
+  margin: .9rem 0 0;
+  font-size: .8125rem;
+  color: var(--ink-faint);
+}
+
+/* fallback block */
+.fallback {
+  margin: 1.1rem 0 0;
+  padding-left: 1rem;
+  border-left: 2px solid var(--rule-firm);
+}
+.fallback strong {
+  display: block;
+  font-family: var(--display);
+  font-size: .9375rem;
+  margin-bottom: .2rem;
+}
+.fallback p {
+  margin: 0;
+  font-size: .875rem;
+  color: var(--ink-soft);
+}
+
+/* ── still to pin down ───────────────────────────────────── */
+
+.floating {
+  margin-top: 3.5rem;
+  padding: 1.75rem 1.5rem;
+  border: 1px dashed var(--rule-firm);
+}
+.floating h2 {
+  font-family: var(--display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 1rem;
+}
+
+/* ── reference tables ────────────────────────────────────── */
+
+.ref { margin-top: 3.5rem; }
+.ref h2 {
+  font-family: var(--display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 1rem;
+  padding-bottom: .6rem;
+  border-bottom: 1px solid var(--rule-firm);
+}
+
+.ref-intro {
+  margin: -.25rem 0 .75rem;
+  font-size: .875rem;
+  color: var(--ink-faint);
+  max-width: var(--measure);
+}
+
+.closures, .phones { margin: 0; }
+.closures div, .phones div {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding: .55rem 0;
+  border-bottom: 1px dotted var(--rule);
+  font-size: .9375rem;
+}
+.closures dt, .phones dt { margin: 0; }
+.closures dd, .phones dd {
+  margin: 0;
+  color: var(--ink-faint);
+  text-align: right;
+}
+.phones dd a {
+  font-family: var(--display);
+  font-weight: 600;
+  color: var(--indigo);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.phones dd a:hover { text-decoration: underline; }
+
+/* ── colophon ────────────────────────────────────────────── */
+
+.colophon {
+  margin-top: 4rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule-firm);
+}
+.colophon ul { margin: 0; padding: 0; list-style: none; }
+.colophon li {
+  font-size: .8125rem;
+  color: var(--ink-faint);
+  margin: .6rem 0;
+  max-width: var(--measure);
+}
+
+.noscript-note { padding-top: 4rem; }
+.noscript-note h1 { font-family: var(--display); }
+
+/* ── narrow screens ──────────────────────────────────────── */
+
+@media (max-width: 40rem) {
+  body { font-size: 17px; }
+
+  .masthead { padding: 2.5rem 0 1.75rem; }
+
+  .day {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 2rem 0;
+  }
+  .day-mark {
+    position: static;
+    display: flex;
+    align-items: baseline;
+    gap: .5rem;
+    margin-bottom: .5rem;
+  }
+  .day-mark .num { font-size: 2.25rem; }
+  .day-mark .num.range { font-size: 1.75rem; }
+  .day-mark .mon { margin-top: 0; }
+
+  .locked { padding: 1.5rem 1.1rem 1.25rem; margin-left: -1rem; margin-right: -1rem; }
+  .locked-row { grid-template-columns: 1fr; gap: .35rem; }
+
+  .menu { margin-left: -.25rem; margin-right: -.25rem; }
+  .menu .row { flex-direction: column; gap: .1rem; }
+  .menu dd { text-align: left; }
+
+  .closures div, .phones div { flex-direction: column; gap: .1rem; }
+  .closures dd, .phones dd { text-align: left; }
+
+  .meal h3 .jp { display: block; margin-left: 0; margin-top: .15rem; }
+}
+
+/* ── print ───────────────────────────────────────────────── */
+
+@media print {
+  :root {
+    --paper: #fff; --paper-sunk: #f6f4f0;
+    --ink: #000; --ink-soft: #333; --ink-faint: #555;
+    --rule: #ccc; --rule-firm: #999;
+    --seal: #000; --indigo: #000; --moss: #000;
+  }
+  body { font-size: 11pt; }
+  .skip, .noscript-note { display: none; }
+  .sheet { max-width: none; padding: 0; }
+  .masthead { padding: 0 0 1rem; }
+  .masthead h1 { font-size: 2.5rem; }
+  .day { page-break-inside: avoid; padding: 1rem 0; }
+  .day-mark { position: static; }
+  .meal { page-break-inside: avoid; }
+  a { text-decoration: none; color: inherit; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
