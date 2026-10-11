@@ -82,8 +82,8 @@ const TRIP = {
     {
       day: "Thursday 31",
       time: "14:26",
-      name: "Hakutaka 564, Nagano to Ueno",
-      note: "Arrives Ueno 15:46. Reserved seats go on sale on 1 December at 09:00 Singapore time.",
+      name: "Hakutaka 564, Nagano to Tokyo",
+      note: "Arrives Tokyo 15:52 — stay on past Ueno. Reserved seats go on sale on 1 December at 09:00 Singapore time.",
     },
   ],
 
@@ -269,7 +269,7 @@ const TRIP = {
           fallback: {
             label: "Earlier or later",
             text:
-              "Packed and out by 09:35? The 09:50 bus reaches Nagano at 11:45 for Hakutaka 560, 12:26 → Ueno 13:46. " +
+              "Packed and out by 09:35? The 09:50 bus reaches Nagano at 11:45 for Hakutaka 560, 12:26 → Tokyo about 13:52. " +
               "If the day slips: 14:05 (Nagano 15:54), 14:55 (16:44), 16:10 (17:59), 17:30 (19:19, the last). " +
               "Times are from the East building; South is a minute later, West two.",
           },
@@ -277,35 +277,53 @@ const TRIP = {
         {
           slot: "Shinkansen",
           time: "14:26",
-          name: "Hakutaka 564, Nagano to Ueno",
+          name: "Hakutaka 564, Nagano to Tokyo",
           jp: "はくたか564号",
-          dish: "Ueno 15:46, Tokyo 15:52",
+          dish: "Arrives Tokyo 15:52",
           status: "tobook",
           notes: [
-            "Two reserved seats, on sale on 1 December at 09:00 Singapore time.",
+            "Two reserved seats, on sale on 1 December at 09:00 Singapore time. Check the ticket says Tokyo (東京), not Ueno (上野).",
             "47 minutes after the bus is due — slack enough if the mountain road is slow.",
-            "Get off at Ueno, not Tokyo, for the Asakusa hotel.",
+            "Stay on past Ueno to Tokyo, the last stop — the change for Shinagawa is there.",
           ],
           fallback: {
             label: "If 564 sells out, or the bus runs late",
             text:
-              "In order: Asama 620, 14:29 → Ueno 16:06 — it starts at Nagano, so it boards empty. " +
-              "Asama 622, 15:25 → Ueno 17:06. Kagayaki 510, 17:05 → Ueno 18:22. " +
+              "In order: Asama 620, 14:29 → Tokyo 16:12 — it starts at Nagano, so it boards empty. " +
+              "Asama 622, 15:25 → Tokyo 17:12. Kagayaki 510, 17:05 → Tokyo 18:28. " +
               "Skip Kagayaki 532 (13:58) and 534 (14:58): both are seasonal extras not yet confirmed for the 31st. " +
               "Missed the booked train? Take the unreserved cars of the next Asama.",
           },
         },
         {
-          slot: "Night",
-          name: "Tosei Hotel Cocone Asakusa Kuramae",
-          map: "Tosei Hotel Cocone Asakusa Kuramae",
-          dish: "Two nights, 31 December and 1 January",
-          status: "tobook",
-          where: "Komagata 2-3-3, Taito-ku",
+          slot: "Then",
+          time: "About 16:00",
+          name: "Tokyo Station to Shinagawa, then up to the hotel",
+          map: "Shinagawa Station Takanawa Exit",
+          dish: "JR, about 10 minutes, then the hotel shuttle",
+          status: "travel",
           notes: [
-            "About SGD 393 for both nights, rated 8.7. On the Toei Asakusa line, which runs straight through to Haneda.",
-            "From Ueno, the Ginza line to Asakusa takes about five minutes, then a short walk.",
-            "Alternatives: APA Hotel Shinagawa Sengakuji Ekimae, about SGD 376 — closest to Haneda but quieter on New Year's Eve. APA Hotel Asakusa Ekimae, about SGD 479. Onyado Nono Asakusa, about SGD 738, with a hot-spring bath.",
+            "Follow the signs from the shinkansen platforms to the JR Yamanote or Keihin-Tohoku line, bound for Shinagawa. It's a change inside the gates.",
+            "If the shinkansen ticket's destination reads 東京都区内 (Tokyo ward area), the ride to Shinagawa is already paid for. If not, tap Suica.",
+            "At Shinagawa, leave by the Takanawa exit (高輪口) and turn left. The free shuttle to the hotel leaves from in front of Wing Takanawa EAST, about every 20 minutes, and takes about 5 minutes.",
+            "No shuttle? Walk 10–13 minutes, or take a taxi from the rank outside the exit. At the hotel by about 16:30.",
+          ],
+        },
+        {
+          slot: "Night",
+          name: "Tokyo Marriott Hotel",
+          map: "Tokyo Marriott Hotel Shinagawa",
+          jp: "東京マリオットホテル",
+          dish: "Deluxe King, low floor — about 38 m²",
+          status: "booked",
+          where: "4-7-36 Kitashinagawa, Shinagawa-ku — in Gotenyama Garden",
+          walk: "10–13 minutes from Shinagawa Station's Takanawa exit, or 5 minutes on the free shuttle",
+          tel: "03-5488-3911",
+          notes: [
+            "Two nights, 31 December and 1 January. Free cancellation until 23:59 Tokyo time on 28 December.",
+            "Check-in from 15:00, check-out by 12:00. Booked direct, so the Platinum benefits apply.",
+            "Platinum: the Executive Lounge for both of us, with breakfast, and drinks and food in the evening. Take points as the welcome gift, since breakfast already comes with the lounge.",
+            "Ask at check-in for 4pm late check-out on 2 January, and for the lounge hours over New Year.",
           ],
         },
         {
@@ -314,7 +332,12 @@ const TRIP = {
           map: "Senso-ji",
           jp: "浅草寺",
           status: "free",
-          notes: ["Crowds build towards midnight for the first temple visit of the year."],
+          notes: [
+            "Crowds build towards midnight for the first temple visit of the year.",
+            "From Shinagawa, take a Keikyu train bound for Asakusa, Oshiage, Aoto or Narita Airport. It runs straight through onto the Toei Asakusa line to Asakusa, about 25 minutes with no change.",
+            "Late trains for New Year's Eve are announced in December, so check before heading out. The shuttle won't be running after midnight. Walk up from Shinagawa or take a taxi.",
+            "The hotel lounge's evening spread is a good start to the night.",
+          ],
         },
       ],
     },
@@ -330,7 +353,10 @@ const TRIP = {
           slot: "All day",
           name: "Nothing planned",
           status: "free",
-          notes: ["Plenty of shops and restaurants close on New Year's Day, so check before setting out."],
+          notes: [
+            "Plenty of shops and restaurants close on New Year's Day, so check before setting out.",
+            "The hotel's Executive Lounge does breakfast, and drinks and food in the evening — a fallback if dinner plans fall through.",
+          ],
           why: "A whole spare day between the mountains and the flight — the reason for coming down on the 31st.",
         },
       ],
@@ -344,22 +370,27 @@ const TRIP = {
       area: "Flying home",
       meals: [
         {
-          slot: "Morning",
-          name: "Check out, leave the bags at the hotel",
+          slot: "Check out",
+          time: "By 12:00",
+          name: "Check out of the Tokyo Marriott",
           status: "free",
-          notes: ["The rest of the day is free."],
+          notes: [
+            "As Platinum we can ask for 4pm. Even if not, the front desk keeps the bags for the rest of the day.",
+            "The rest of the day is free.",
+          ],
         },
         {
           slot: "Then",
-          time: "Leave by 19:10",
-          name: "Toei Asakusa line to Haneda",
+          time: "Leave by 19:15",
+          name: "Shuttle to Shinagawa, then Keikyu to Haneda",
           map: "Haneda Airport Terminal 3",
-          dish: "Direct, no changes, about 40 minutes, ¥555 each",
+          dish: "About 15 minutes to Shinagawa, then about 15 minutes on the train",
           status: "travel",
           notes: [
-            "Board a train bound for Haneda Airport at Asakusa station — it runs straight through onto the Keikyu line.",
+            "With the bags, take the hotel shuttle or a taxi down to Shinagawa rather than walking.",
+            "At Shinagawa, take a Keikyu train bound for Haneda Airport. The Airport Limited Express is the quickest.",
             "Terminal 3 has its own station; don't get off at Terminal 1·2.",
-            "That puts us at the terminal around 19:55, three hours before the flight.",
+            "That puts us at the terminal around 19:50, about three hours before the flight.",
           ],
         },
         {
@@ -395,7 +426,7 @@ const TRIP = {
       intro: "Shinkansen seats go on sale at 10:00 Japan time — 09:00 in Singapore — one month before travel.",
       rows: [
         { label: "Hotel by Nagano Station, 25 December — Hotel Courtland", value: "Booked" },
-        { label: "Tokyo hotel, 31 December and 1 January", value: "By 17 Oct" },
+        { label: "Tokyo hotel, 31 December and 1 January — Tokyo Marriott", value: "Booked" },
         { label: "Rental boards and boots", value: "By 17 Oct" },
         { label: "Check the 2026–27 bus details; book both legs if it now takes bookings", value: "20 Nov" },
         { label: "JR-EAST Train Reservation account, card saved", value: "24 Nov" },
@@ -404,7 +435,9 @@ const TRIP = {
         { label: "Last day to change the Prince booking free", value: "8 Dec" },
         { label: "Last day to cancel Hotel Courtland free", value: "16 Dec" },
         { label: "Visit Japan Web, and Suica on the phone", value: "20 Dec" },
+        { label: "Ask the Tokyo Marriott: shuttle and lounge hours over New Year, 4pm check-out", value: "20 Dec" },
         { label: "Collect both shinkansen tickets at Tokyo Station", value: "25 Dec" },
+        { label: "Last day to cancel the Tokyo Marriott free", value: "28 Dec" },
       ],
     },
   ],
@@ -412,6 +445,7 @@ const TRIP = {
   phones: [
     { name: "Shiga Kogen Prince Hotel", tel: "0269-34-3111" },
     { name: "Shiga Kogen Tourism Association (buses)", tel: "0269-34-2404" },
+    { name: "Tokyo Marriott Hotel", tel: "03-5488-3911" },
   ],
 
   footnotes: [
@@ -420,6 +454,6 @@ const TRIP = {
     "Kagayaki is the fastest service, but every seat is reserved and it runs less often. Hakutaka and Asama stop more and have unreserved cars. On this route all three cost the same, about ¥8,340 for a reserved seat.",
     "The Nagaden bus can't be reserved and takes no cash on board at weekends and on holidays. The 2026–27 timetable is due in November — recheck these times then.",
     "No car. The road up is a single-lane mountain road that ices over, the pass beyond Shiga Kogen is shut all winter, and there's no petrol station up there.",
-    "Hotel prices are Booking.com totals for the room, checked on 10 October 2026. JR adds year-end extra trains closer to the date, so recheck train times when booking.",
+    "JR adds year-end extra trains closer to the date, so recheck train times when booking.",
   ],
 };
