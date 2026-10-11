@@ -72,13 +72,20 @@ assets/render.js    turns the data into the page
 `.nojekyll` matters: without it GitHub runs the files through Jekyll, which
 ignores anything it doesn't recognise and can silently drop assets.
 
-## Turning on GitHub Pages
+## GitHub Pages
 
-Settings → Pages → Source: **Deploy from a branch** → Branch: **master**, folder
-**/ (root)** → Save.
+The site is live at `https://adriancheong.github.io/tokyo-dec-2026/`.
 
-The URL appears on that same screen after a minute:
-`https://adriancheong.github.io/tokyo-dec-2026/`.
+It is currently published from the **`gh-pages`** branch, which is a copy of
+`master`. After pushing a change to `master`, publish it with:
+
+```bash
+git push origin master:gh-pages
+```
+
+To publish straight from `master` instead (as the November site does):
+Settings → Pages → Source: **Deploy from a branch** → Branch: **master**,
+folder **/ (root)** → Save. The `gh-pages` branch can then be deleted.
 
 A published Pages site is reachable by anyone with the link, whatever the
 repo's visibility.
