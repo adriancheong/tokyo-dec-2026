@@ -129,10 +129,11 @@ const TRIP = {
           slot: "Then",
           name: "Haneda to Tokyo Station",
           map: "Tokyo Station",
-          dish: "30–40 minutes, about ¥510 each",
+          dish: "30–40 minutes, about ¥550 each on Suica",
           status: "travel",
           notes: [
             "Keikyu line to Shinagawa, then JR Yamanote or Keihin-Tohoku to Tokyo. The Tokyo Monorail to Hamamatsucho, then JR, works just as well.",
+            "Pay with Suica. The JR leg won't take a tapped credit card. Top each Suica up to ¥5,000 before landing — that covers this ride and tomorrow's ¥3,000 bus.",
             "The Hokuriku Shinkansen starts at Tokyo Station, not Shinagawa.",
             "Collect both shinkansen tickets — tonight's and the one for 31 December — at a ticket machine, with the QR code from the booking email.",
             "Pick up an ekiben (station bento) for dinner on the train.",
@@ -146,7 +147,8 @@ const TRIP = {
           dish: "Arrives Nagano 20:40",
           status: "tobook",
           notes: [
-            "Two reserved seats, on sale on 25 November at 09:00 Singapore time.",
+            "Two reserved seats, on sale on 25 November at 09:00 Singapore time. About ¥8,450 each, paid by credit card when booking online.",
+            "Suica doesn't pay for the shinkansen — we need the ticket. Changing or buying on the day: the green reserved-seat ticket machines or the ticket office (みどりの窓口), by credit card or cash. Unreserved seats are about ¥7,920.",
             "It leaves three and a half hours after we land, so an hour's flight delay costs nothing.",
             "Out of the airport early? Switch at a Tokyo Station ticket machine to Kagayaki 515, 18:24 → 19:44, if seats remain. The first change is free.",
           ],
@@ -207,7 +209,9 @@ const TRIP = {
             "On the way up: Sun Valley 10:22, Maruike, Yamanoeki and Hasuike about 10:28, Takamagahara 10:38, Ichinose Village 10:40, Ichinose Diamond 10:41 — then us. Once Ichinose comes up, get ready: West is a minute or two later.",
             "If it goes by, get off at the next stop, Prince Hotel South (10:44), and ring the front desk on 0269-34-3111. Don't ride on to Okushiga.",
             "The driver loads suitcases into the hold. Tell him as he does: \"Purinsu Hoteru, Nishi-kan\" (Prince Hotel, West building), so he knows to open it there.",
-            "Pay as we get off, by contactless card, Suica or PayPay. At weekends and on holidays it takes no cash on board.",
+            "Pay ¥3,000 each as we get off, by Suica, a tapped credit card or PayPay. Each Suica needs at least ¥3,000 on it — top up the night before, since top-ups don't work between midnight and 5am Japan time.",
+            "Suica short? Tap a contactless credit card instead (Visa, Mastercard, JCB, Amex). It's a Saturday, so the bus takes no cash on board.",
+            "On the bus's display, our stop may show as 焼額山入口プリンスホテル西館前.",
             "The last stretch is a winding mountain road — sit near the front if either of us gets carsick.",
             "From this season the bus no longer stops at the Snow Monkey Park.",
           ],
@@ -285,7 +289,7 @@ const TRIP = {
             "Board at the Prince Hotel West stop, outside the West building. Be there by about 11:40 — check-out mornings at a hotel this size bunch up.",
             "It starts at Okushiga at 11:40 and calls at Prince Hotel East (11:50) and South (11:51) before us, so there should still be seats.",
             "Stay on to the last stop, Nagano Station (長野駅). On the way: Ichinose 11:55–11:57, Takamagahara 11:59, Yamanoeki and Hasuike 12:20, Sun Valley 12:22, then the long run down.",
-            "Pay by card or Suica as we get off.",
+            "Pay ¥3,000 each as we get off, by Suica or a tapped credit card. Top each Suica up to ¥4,000 the night before: the bus plus the JR hop to Shinagawa.",
           ],
           fallback: {
             label: "Earlier or later",
@@ -303,7 +307,8 @@ const TRIP = {
           dish: "Arrives Tokyo 15:52",
           status: "tobook",
           notes: [
-            "Two reserved seats, on sale on 1 December at 09:00 Singapore time. Check the ticket says Tokyo (東京), not Ueno (上野).",
+            "Two reserved seats, on sale on 1 December at 09:00 Singapore time. About ¥8,850 each — 31 December is year-end peak, ¥400 over the usual fare — paid by credit card when booking. Check the ticket says Tokyo (東京), not Ueno (上野).",
+            "Changing or buying at Nagano: the green reserved-seat ticket machines or the ticket office, by credit card or cash. Suica doesn't pay for the shinkansen.",
             "47 minutes after the bus is due — slack enough if the mountain road is slow.",
             "Stay on past Ueno to Tokyo, the last stop — the change for Shinagawa is there.",
           ],
@@ -462,6 +467,25 @@ const TRIP = {
         { label: "Last day to cancel the Tokyo Marriott free", value: "28 Dec" },
       ],
     },
+    {
+      title: "What each leg costs, and how to pay",
+      intro:
+        "Per person. Each of us pays from our own Suica or card. Suica can't be topped up between midnight and 5am Japan time, " +
+        "and needs data or Wi-Fi — so top up the night before. The Nagaden bus also takes a tapped credit card, so a low Suica won't strand us there.",
+      rows: [
+        { label: "Before landing, 25 Dec — top each Suica up to", value: "¥5,000" },
+        { label: "Haneda to Tokyo Station — Keikyu, then JR (Suica)", value: "About ¥550" },
+        { label: "Hakutaka 575, 25 Dec — reserved, paid online by card", value: "About ¥8,450" },
+        { label: "Bus up, 26 Dec — Suica, tapped card or PayPay; no cash", value: "¥3,000" },
+        { label: "Night of 30 Dec — top each Suica up to", value: "¥4,000" },
+        { label: "Bus down, 31 Dec — Suica or tapped card", value: "¥3,000" },
+        { label: "Hakutaka 564, 31 Dec — reserved, year-end peak, paid online by card", value: "About ¥8,850" },
+        { label: "Tokyo Station to Shinagawa — JR (Suica, unless the ticket covers it)", value: "About ¥200" },
+        { label: "Shinagawa to Asakusa and back, New Year's Eve (Suica)", value: "About ¥900" },
+        { label: "Shinagawa to Haneda Terminal 3, 2 Jan — Keikyu (Suica)", value: "About ¥350" },
+        { label: "Shinkansen changed or bought on the day — ticket machine or office", value: "Card or cash" },
+      ],
+    },
   ],
 
   phones: [
@@ -473,7 +497,7 @@ const TRIP = {
   footnotes: [
     "Each direction is its own shinkansen ticket. Year-end seats go fast, so book the minute they open.",
     "A reserved ticket is tied to one train. Change it at a ticket machine before that train leaves — the first change is free. Miss it, and it still works the same day in the unreserved cars of a later Hakutaka or Asama.",
-    "Kagayaki is the fastest service, but every seat is reserved and it runs less often. Hakutaka and Asama stop more and have unreserved cars. On this route all three cost the same, about ¥8,340 for a reserved seat.",
+    "Kagayaki is the fastest service, but every seat is reserved and it runs less often. Hakutaka and Asama stop more and have unreserved cars. On this route all three cost the same: about ¥8,450 for a reserved seat, ¥400 more in the New Year peak, and ¥7,920 unreserved (fares since JR East's March 2026 increase).",
     "The Nagaden bus can't be reserved and takes no cash on board at weekends and on holidays. The 2026–27 timetable is due in November — recheck these times then.",
     "No car. The road up is a single-lane mountain road that ices over, the pass beyond Shiga Kogen is shut all winter, and there's no petrol station up there.",
     "JR adds year-end extra trains closer to the date, so recheck train times when booking.",
