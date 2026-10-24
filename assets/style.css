@@ -178,6 +178,10 @@ a {
 }
 .base .stay-what strong { margin-bottom: .05rem; }
 .base .stay-what p { margin: .1rem 0 0; }
+.base .stay-what .stay-cancel {
+  font-size: .875rem;
+  color: var(--seal);
+}
 
 /* ── flights ─────────────────────────────────────────────── */
 

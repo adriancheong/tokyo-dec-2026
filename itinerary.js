@@ -55,6 +55,7 @@ const TRIP = {
       name: "Hotel Courtland",
       map: "Hotel Courtland Nagano",
       where: "Nagano, opposite the station's East Exit",
+      cancel: "Free cancellation before 16 Dec — treat 15 Dec as the last safe day",
     },
     {
       when: "26 Dec",
@@ -62,6 +63,7 @@ const TRIP = {
       name: "Shiga Kogen Prince Hotel",
       map: "Shiga Kogen Prince Hotel",
       where: "Most likely the West building. Ski-in, ski-out",
+      cancel: "Free cancellation until 8 Dec",
       tel: "0269-34-3111",
     },
     {
@@ -70,6 +72,7 @@ const TRIP = {
       name: "Tokyo Marriott Hotel",
       map: "Tokyo Marriott Hotel Shinagawa",
       where: "Shinagawa, free shuttle from the Takanawa exit",
+      cancel: "Free cancellation until 28 Dec, 23:59 Tokyo time",
       tel: "03-5488-3911",
     },
   ],

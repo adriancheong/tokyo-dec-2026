@@ -94,6 +94,7 @@
             '<div class="stay-what"><strong>' +
               mapLink(s.place, s.name, esc(s.name), s.map) + "</strong>" +
               (s.where ? "<p>" + esc(s.where) + "</p>" : "") +
+              (s.cancel ? '<p class="stay-cancel">' + esc(s.cancel) + "</p>" : "") +
               (s.tel ? "<p>" + telLink(s.tel) + "</p>" : "") +
             "</div></li>"
           );
