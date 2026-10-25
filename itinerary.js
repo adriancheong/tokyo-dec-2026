@@ -82,9 +82,9 @@ const TRIP = {
   locked: [
     {
       day: "Friday 25",
-      time: "19:04",
-      name: "Hakutaka 575, Tokyo to Nagano",
-      note: "Arrives 20:40. Reserved seats go on sale on 25 November at 09:00 Singapore time.",
+      time: "18:24",
+      name: "Kagayaki 515, Tokyo to Nagano",
+      note: "Arrives 19:44. Collect the paper tickets at the JR counter in Haneda T3 first. Reserved seats go on sale on 25 November at 09:00 Singapore time.",
     },
     {
       day: "Saturday 26",
@@ -124,43 +124,59 @@ const TRIP = {
           dish: "Terminal 3",
           status: "travel",
           notes: [
-            "Allow about an hour for immigration, bags and customs. Aim to be out by about 16:45.",
+            "Simulated from SQ632's recent arrival times: out of arrivals by 16:11 typically, 16:41 at the 90th percentile.",
             "Filling in Visit Japan Web before flying gets you through immigration noticeably faster.",
           ],
         },
         {
+          slot: "Tickets",
+          time: "About 16:15",
+          name: "Collect both shinkansen tickets at the JR counter",
+          map: "JR EAST Travel Service Center Haneda Airport Terminal 3",
+          dish: "JR EAST Travel Service Center, T3 arrival lobby, 2nd floor",
+          status: "travel",
+          where: "Next to the Tokyo Monorail ticket gates. Open 06:45–20:00",
+          notes: [
+            "Collect tonight's tickets and the 31 December ones together, with the QR code from the booking email. Tickets in hand by about 16:24 typically, 16:58 at the 90th percentile.",
+            "Collect only — don't switch to an earlier train here.",
+            "Exception: if it's already after 17:25 when we have the tickets, ask the counter to move us to a later reserved train — Asama 625 (18:40 → 20:24) or Hakutaka 575 (19:04 → 20:40). Once the 515 leaves at 18:24, the ticket can't be changed any more.",
+            "If the counter can't change it, a green ticket machine at Tokyo Station can, or simply ride the unreserved cars of a later train (see below).",
+          ],
+        },
+        {
           slot: "Then",
-          name: "Haneda to Tokyo Station",
+          name: "Tokyo Monorail, then JR to Tokyo Station",
           map: "Tokyo Station",
-          dish: "30–40 minutes, about ¥550 each on Suica",
+          dish: "Monorail to Hamamatsucho about 15 min, then JR about 5 min",
           status: "travel",
           notes: [
-            "Keikyu line to Shinagawa, then JR Yamanote or Keihin-Tohoku to Tokyo. The Tokyo Monorail to Hamamatsucho, then JR, works just as well.",
-            "Pay with Suica. The JR leg won't take a tapped credit card. Top each Suica up to ¥5,000 before landing — that covers this ride and tomorrow's ¥3,000 bus.",
-            "The Hokuriku Shinkansen starts at Tokyo Station, not Shinagawa.",
-            "Collect both shinkansen tickets — tonight's and the one for 31 December — at a ticket machine, with the QR code from the booking email.",
+            "The Monorail gates are right beside the JR counter. At Hamamatsucho, change to the JR Yamanote or Keihin-Tohoku line for Tokyo.",
+            "Pay the Monorail and JR with Suica, about ¥700 each. Top each Suica up to ¥5,000 before landing — that covers this and tomorrow's ¥3,000 bus.",
+            "At Tokyo Station by about 16:54 typically, 17:28 at the 90th percentile.",
+            "Follow the Shinkansen signs to platforms 20–23. At the shinkansen transfer gate, insert both paper tickets and take them back, and tap Suica if the gate asks.",
+            "Optional: at Tokyo Station by about 17:05 and a green ticket machine has no queue? Switch to Kagayaki 513 (17:24 → 18:47) if seats remain. Otherwise take the 515. Not worth switching to: Hakutaka 573 (18:04, gets in only 4 minutes sooner) or Asama 623 (17:40 → 19:24, 20 minutes sooner).",
             "Pick up an ekiben (station bento) for dinner on the train.",
           ],
         },
         {
           slot: "Shinkansen",
-          time: "19:04",
-          name: "Hakutaka 575, Tokyo to Nagano",
-          jp: "はくたか575号",
-          dish: "Arrives Nagano 20:40",
+          time: "18:24",
+          name: "Kagayaki 515, Tokyo to Nagano",
+          jp: "かがやき515号",
+          dish: "Arrives Nagano 19:44",
           status: "tobook",
           notes: [
-            "Two reserved seats, on sale on 25 November at 09:00 Singapore time. About ¥8,450 each, paid by credit card when booking online.",
-            "Suica doesn't pay for the shinkansen — we need the ticket. Changing or buying on the day: the green reserved-seat ticket machines or the ticket office (みどりの窓口), by credit card or cash. Unreserved seats are about ¥7,920.",
-            "It leaves three and a half hours after we land, so an hour's flight delay costs nothing.",
-            "Out of the airport early? Switch at a Tokyo Station ticket machine to Kagayaki 515, 18:24 → 19:44, if seats remain. The first change is free.",
+            "Two reserved seats, D and E, paper tickets. On sale on 25 November at 09:00 Singapore time; about ¥8,450 each, paid in full by card when booking. Sold out? Book Hakutaka 573 (18:04 → 19:40), then Asama 625 (18:40 → 20:24).",
+            "Be on the platform by 18:14. On the platform by about 17:04 typically, 17:38 at the 90th percentile — about a 98% chance of making it.",
+            "At Nagano, take the East Exit (東口). Hotel Courtland is right opposite.",
           ],
           fallback: {
-            label: "If the flight is late, or 575 sells out",
+            label: "If we miss the 515",
             text:
-              "In order: Asama 627, 19:32 → 21:11. Kagayaki 517, 20:00 → 21:19. Asama 633, 22:08 → 23:50, " +
-              "the last train of the night. Change at a ticket machine before 19:04. Missed it altogether? " +
-              "The ticket still works today in the unreserved cars of any later Hakutaka or Asama.",
+              "No change needed: the ticket still works tonight in the unreserved cars of Asama 625 (18:40 → 20:24, cars 1–6), " +
+              "Hakutaka 575 (19:04 → 20:40, cars 1–5), Asama 627 (19:32 → 21:11, cars 1–7), Hakutaka 577 (20:12 → 21:47, cars 1–5), " +
+              "Asama 629 (20:36 → 22:16, cars 1–6) or Asama 631 (21:28 → 23:11, cars 1–6). Follow the 自由席 signs on the platform. " +
+              "Not Kagayaki 517 (20:00) or 519 (21:04) — every seat is reserved.",
           },
         },
         {
@@ -310,18 +326,20 @@ const TRIP = {
           dish: "Arrives Tokyo 15:52",
           status: "tobook",
           notes: [
-            "Two reserved seats, on sale on 1 December at 09:00 Singapore time. About ¥8,850 each — 31 December is year-end peak, ¥400 over the usual fare — paid by credit card when booking. Check the ticket says Tokyo (東京), not Ueno (上野).",
-            "Changing or buying at Nagano: the green reserved-seat ticket machines or the ticket office, by credit card or cash. Suica doesn't pay for the shinkansen.",
+            "Two reserved seats, D and E, paper tickets — already collected at Haneda on the 25th, so there's no ticket counter step today. On sale on 1 December at 09:00 Singapore time; about ¥8,850 each (31 December is year-end peak, ¥400 over the usual fare), paid by card when booking. Sold out? Book Asama 620 (14:29 → 16:12).",
+            "Check the ticket says Tokyo (東京), not Ueno (上野).",
+            "Changing at Nagano: the green reserved-seat ticket machines or the ticket office, before 14:26. The first change is free. Suica doesn't pay for the shinkansen.",
             "47 minutes after the bus is due — slack enough if the mountain road is slow.",
             "Stay on past Ueno to Tokyo, the last stop — the change for Shinagawa is there.",
           ],
           fallback: {
-            label: "If 564 sells out, or the bus runs late",
+            label: "If the bus runs late, or we miss it",
             text:
-              "In order: Asama 620, 14:29 → Tokyo 16:12 — it starts at Nagano, so it boards empty. " +
-              "Asama 622, 15:25 → Tokyo 17:12. Kagayaki 510, 17:05 → Tokyo 18:28. " +
-              "Skip Kagayaki 532 (13:58) and 534 (14:58): both are seasonal extras not yet confirmed for the 31st. " +
-              "Missed the booked train? Take the unreserved cars of the next Asama.",
+              "Bus late: no change needed — ride the unreserved cars of Asama 620 (14:29 → 16:12, cars 1–5; it starts at Nagano, so it boards empty), " +
+              "Hakutaka 566 (15:22 → 16:52, cars 1–3) or Asama 622 (15:25 → 17:12, cars 1–5). " +
+              "Missed the 11:52 bus: take the 14:07 (Nagano about 15:54), then the unreserved cars of Hakutaka 568 (16:20 → 17:52, cars 1–3) " +
+              "or Asama 626 (16:25 → 18:12, cars 1–5). Skip Kagayaki 532 (13:58) and 534 (14:58): seasonal extras not confirmed for the 31st. " +
+              "Asama 644 (15:03) isn't in the winter timetable either.",
           },
         },
         {
@@ -458,15 +476,15 @@ const TRIP = {
         { label: "Tokyo hotel, 31 December and 1 January — Tokyo Marriott", value: "Booked" },
         { label: "Rental boards and boots", value: "By 17 Oct" },
         { label: "Check the 2026–27 bus details; book both legs if it now takes bookings", value: "20 Nov" },
-        { label: "JR-EAST Train Reservation account, card saved", value: "24 Nov" },
-        { label: "Shinkansen to Nagano — Hakutaka 575, 25 December", value: "25 Nov, 09:00" },
-        { label: "Shinkansen to Tokyo — Hakutaka 564, 31 December", value: "1 Dec, 09:00" },
+        { label: "JR-EAST Train Reservation account", value: "Done" },
+        { label: "Shinkansen to Nagano — Kagayaki 515, 25 December, seats D+E, paper tickets", value: "25 Nov, 09:00" },
+        { label: "Shinkansen to Tokyo — Hakutaka 564, 31 December, seats D+E, paper tickets", value: "1 Dec, 09:00" },
         { label: "Last day to change the Prince booking free", value: "8 Dec" },
         { label: "Last day to cancel Hotel Courtland free", value: "16 Dec" },
         { label: "Suica in Apple Wallet — first phone", value: "Done" },
         { label: "Visit Japan Web, and Suica on the second phone", value: "20 Dec" },
         { label: "Ask the Tokyo Marriott: shuttle and lounge hours over New Year, 4pm check-out", value: "20 Dec" },
-        { label: "Collect both shinkansen tickets at Tokyo Station", value: "25 Dec" },
+        { label: "Collect both shinkansen tickets — JR counter, Haneda T3 arrivals", value: "25 Dec" },
         { label: "Last day to cancel the Tokyo Marriott free", value: "28 Dec" },
       ],
     },
@@ -477,12 +495,12 @@ const TRIP = {
         "and needs data or Wi-Fi — so top up the night before. The Nagaden bus also takes a tapped credit card, so a low Suica won't strand us there.",
       rows: [
         { label: "Before landing, 25 Dec — top each Suica up to", value: "¥5,000" },
-        { label: "Haneda to Tokyo Station — Keikyu, then JR (Suica)", value: "About ¥550" },
-        { label: "Hakutaka 575, 25 Dec — reserved, paid online by card", value: "About ¥8,450" },
+        { label: "Haneda to Tokyo Station — Monorail, then JR (Suica)", value: "About ¥700" },
+        { label: "Kagayaki 515, 25 Dec — reserved, paid by card when booking", value: "About ¥8,450" },
         { label: "Bus up, 26 Dec — Suica, tapped card or PayPay; no cash", value: "¥3,000" },
         { label: "Night of 30 Dec — top each Suica up to", value: "¥4,000" },
         { label: "Bus down, 31 Dec — Suica or tapped card", value: "¥3,000" },
-        { label: "Hakutaka 564, 31 Dec — reserved, year-end peak, paid online by card", value: "About ¥8,850" },
+        { label: "Hakutaka 564, 31 Dec — reserved, year-end peak, paid by card when booking", value: "About ¥8,850" },
         { label: "Tokyo Station to Shinagawa — JR (Suica, unless the ticket covers it)", value: "About ¥200" },
         { label: "Shinagawa to Asakusa and back, New Year's Eve (Suica)", value: "About ¥900" },
         { label: "Shinagawa to Haneda Terminal 3, 2 Jan — Keikyu (Suica)", value: "About ¥350" },
@@ -499,10 +517,11 @@ const TRIP = {
 
   footnotes: [
     "Each direction is its own shinkansen ticket. Year-end seats go fast, so book the minute they open.",
-    "A reserved ticket is tied to one train. Change it at a ticket machine before that train leaves — the first change is free. Miss it, and it still works the same day in the unreserved cars of a later Hakutaka or Asama.",
+    "Paper tickets, paid in full by card when booking. Cancelling online is free until 21:00 Japan time the day before. Once collected, a ticket can only be changed at a station, before its train leaves; the first change is free.",
+    "Miss a reserved train and the ticket still works the same day in the unreserved cars of any later Hakutaka or Asama — usually cars 1–4 on Hakutaka and 1–5 on Asama, though it varies by train, so follow the 自由席 signs. Not on Kagayaki, which has no unreserved cars. A reserved ticket can't be used on an earlier train without changing it first.",
     "Kagayaki is the fastest service, but every seat is reserved and it runs less often. Hakutaka and Asama stop more and have unreserved cars. On this route all three cost the same: about ¥8,450 for a reserved seat, ¥400 more in the New Year peak, and ¥7,920 unreserved (fares since JR East's March 2026 increase).",
     "The Nagaden bus can't be reserved and takes no cash on board at weekends and on holidays. The 2026–27 timetable is due in November — recheck these times then.",
     "No car. The road up is a single-lane mountain road that ices over, the pass beyond Shiga Kogen is shut all winter, and there's no petrol station up there.",
-    "JR adds year-end extra trains closer to the date, so recheck train times when booking.",
+    "Train times checked on JR-EAST Train Reservation for the same weekdays in November. JR adds year-end extra trains closer to the date, so recheck when booking.",
   ],
 };
