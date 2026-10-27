@@ -250,7 +250,9 @@ const TRIP = {
           tel: "0269-34-3111",
           notes: [
             "Booked for 26–30 December: two standard board-and-boots sets.",
+            "Show the rental confirmation email at the counter, or give the booker's name.",
             "Pay at the counter: ¥6,500 (S$53) per set per day, with 10% off for hotel guests — about ¥5,850 (S$48).",
+            "Ask for the 10% hotel-guest discount when paying — say we're staying at the Prince. Don't assume it's applied automatically.",
             "Bring both passports — ID is required. Bring our own gloves, goggles and hats.",
             "Changes at the counter only. To cancel, email yoyaku-shigakogen@xraeb.co.jp or call 0269-34-3111 (08:00–17:00 Japan time) — a no-show without notice may be charged.",
           ],
