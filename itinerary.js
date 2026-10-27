@@ -251,6 +251,7 @@ const TRIP = {
           notes: [
             "Booked for 26–30 December: two standard board-and-boots sets.",
             "Show the rental confirmation email at the counter, or give the booker's name.",
+            "Ask for two helmets as well — they aren't part of the booking. Don't ride without one.",
             "Pay at the counter: ¥6,500 (S$53) per set per day, with 10% off for hotel guests — about ¥5,850 (S$48).",
             "Ask for the 10% hotel-guest discount when paying — say we're staying at the Prince. Don't assume it's applied automatically.",
             "Bring both passports — ID is required. Bring our own gloves, goggles and hats.",
