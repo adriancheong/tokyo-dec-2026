@@ -236,10 +236,24 @@ const TRIP = {
           notes: [
             "Check-in is from 15:00. Leave the bags at the West building's front desk and get on the snow.",
             "Ask the front desk to confirm our building — and, while there, exactly where the West bus stop is for 31 December.",
-            "Rental boards and boots reserved ahead for peak week — ask the Prince what it offers.",
+            "Boards and boots are booked at the rental shop in the West building lobby — see below.",
             "While at the front desk, ask them to book Izakaya YAKEBI for 30 December, 18:30, for two — it only takes phone bookings.",
           ],
           why: "Half a day on the snow before we've even checked in.",
+        },
+        {
+          slot: "Gear",
+          name: "Board + boots rental",
+          map: "Shiga Kogen Prince Hotel",
+          status: "booked",
+          where: "Shiga Kogen Prince West building rental shop (lobby), 08:00–17:00",
+          tel: "0269-34-3111",
+          notes: [
+            "Booked for 26–30 December: two standard board-and-boots sets.",
+            "Pay at the counter: ¥6,500 (S$53) per set per day, with 10% off for hotel guests — about ¥5,850 (S$48).",
+            "Bring both passports — ID is required. Bring our own gloves, goggles and hats.",
+            "Changes at the counter only. To cancel, email yoyaku-shigakogen@xraeb.co.jp or call 0269-34-3111 (08:00–17:00 Japan time) — a no-show without notice may be charged.",
+          ],
         },
         {
           slot: "Dinner",
@@ -595,7 +609,7 @@ const TRIP = {
       rows: [
         { label: "Hotel by Nagano Station, 25 December — Hotel Courtland", value: "Booked" },
         { label: "Tokyo hotel, 31 December and 1 January — Tokyo Marriott", value: "Booked" },
-        { label: "Rental boards and boots", value: "By 17 Oct" },
+        { label: "Rental boards and boots — Prince West building rental shop, 26–30 December", value: "Done" },
         { label: "Check the 2026–27 bus details; book both legs if it now takes bookings", value: "20 Nov" },
         { label: "JR-EAST Train Reservation account", value: "Done" },
         { label: "Shinkansen to Nagano — Kagayaki 515, 25 December, seats D+E, e-tickets with both Suica numbers", value: "25 Nov, 09:00" },
